@@ -1,0 +1,42 @@
+O R M (object Relational Maping)
+============================================================================
+Python Manage.py shell
+i=ignore,
+from studentapp.models import Student
+Studdent.objects.all()
+Student.objects.get(id=1)
+Student.objects.get(name='rana')
+Student.objects.get(name__exact='rana')
+Student.objects.get(name__iexact='rana')
+Student.objects.get(name__contains='i')
+Student.objects.get(name__icontains='i')
+Student.objects.filter(name__startswith='i')
+Student.objects.filter(name__istartswith='i')
+Student.objects.filter(name__endswith='h')
+Student.objects.filter(name__iendswith='H')
+
+Sorting
+-----------------------------------------------
+Student.objects.order_by('name')  #(ascending)
+Student.objects.order_by('-name') #(descending)
+
+selected field
+-------------------------------------------------
+Student.objects.values() #return dictionary
+Student.objects.values('name','dob')
+Student.objects.values_list('name','dob')# return=Tuple
+Student.objects.values_list('name','dob').get(pk=1) #pk=primary key or id 
+
+Date Time
+-----------------------------------------------------
+import datetime
+sdate=datetime.date(2019,3,26)
+edate=datetime.date(2020,2,9)
+Student.objects.filter(dob__range=(sdate,edate))
+Student.objects.filter(dob__year__gte=2005)
+
+Crud(create/update/delete)
+-------------------------------------------------------
+Student.objects.create(name='nazmul',email='naz@gmail.com',dob='1968-03-09')
+Student.objects.filter(pk=16).update(name='Dipu')
+Student.objects.filter(pk=16).delete()

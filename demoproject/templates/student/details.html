@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+{% block stylesheet %} {% endblock %}
+
+{% block content %} 
+        <div class="card shadow container"style="width:30rem;">
+            <div class="card-body">
+                <h5 class="card-title card-header bg-primary text-white">View Student</h5>
+                <form action="" method="POST">
+                    <div class="row mb-3">
+                        <label for="" class="col-sm-4 col-form-label"> Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="name" value="{{student.name}}">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="" class="col-sm-4 col-form-label"> Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" name="email" value="{{student.email}}">
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label for="" class="col-sm-4 col-form-label"> Dath of Birth</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="dob" value="{{student.dob|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="" class="col-sm-4 col-form-label"> Gender</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="gender" value="{{student.gender}}">
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        
+                        <a href="{% url 'index' %}"class="btn btn-primary">Back</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %} {% endblock %}

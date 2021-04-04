@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+{% block stylesheet %} {% endblock %}
+
+{% block content %} 
+
+
+<div class="row container" > 
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card shadow ">
+                <div class="card-header bg-primary text-white">Create New Student</div>
+                <div class="card-body">
+                 <!-- form desing here -->
+                    <form action="{% url 'create' %}" method="post">
+                        {% csrf_token %}
+                        {% load crispy_forms_tags %}
+                               {{form|crispy}}                             
+                            <div class="col-sm-4">
+                                <input type="submit" value="Submit" class="btn btn-primary" >
+                                <a href="{% url 'index' %}"class="btn btn-primary">Back</a>
+                            </div>
+                        </div>
+
+
+                    </form>
+                    <!-- end of formdesign -->
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+{% block javascript %} {% endblock %}
+
